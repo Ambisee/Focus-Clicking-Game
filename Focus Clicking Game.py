@@ -32,7 +32,8 @@ class MainMenu:
         self.mwin.mainloop()
 
     def get_no_rounds(self):
-        max = 20
+        # Get number of rounds the player wants
+        max = 100
         try:
             noor = int(self.no_entry.get())
         except:
@@ -46,9 +47,11 @@ class MainMenu:
         return noor
 
     def kb_btn_func(self, event):
+        # Keyboard shortcut for btn_func
         self.btn_func()
 
     def btn_func(self):
+        # Set number of rounds and time, proceed to game
         global noor, noor_c, mistake, m, s, ms
 
         noor = self.get_no_rounds()
@@ -76,6 +79,7 @@ class GameButtons:
         button_list.append(self)
 
     def clicked(self):
+        # Check whether player clicked the right button
         global noor, mistake
 
         if self.button['bg'] == "Green":
@@ -139,6 +143,7 @@ class Game(GameButtons):
         self.start_timer()
 
     def start_timer(self):
+        # Start the timer
         global m, s, ms
 
         if self.stop == False:
@@ -154,6 +159,7 @@ class Game(GameButtons):
             self.win.after(1, self.start_timer)
 
     def b_click(self, b):
+        # 
         global mistake, noor
 
         GameButtons.clicked(b)
@@ -221,6 +227,7 @@ class Results(Game):
         self.print_score()
 
     def print_score(self):
+        # Print out the scoreboard on the GUI
         self.scorelist.delete(0, END)
         with open("Scores.txt", "r") as f:
             lines = f.readlines()
@@ -235,6 +242,7 @@ class Results(Game):
             save.post(self.scorelist)
 
     def submit_score(self):
+        # Submit and reprint the current score
         global mistake, noor_c, m, s, ms
 
         name = self.n_entry.get()
@@ -251,11 +259,13 @@ class Results(Game):
             messagebox.showerror("! Error !", "Please enter at least one character in the entry bar.")
 
     def retry(self):
+        # Return to the main menu
         self.win.destroy()
         button_list.clear()
         MainMenu()
 
     def del_s(self):
+        # Delete a score on the scoreboard
         del_obj = self.scorelist.get(ANCHOR)
 
         if del_obj == "":
@@ -287,6 +297,7 @@ class ScoreItem:
         self.noor = noor
 
     def post(self, listbox):
+        # Post score on the scoreboard
         listbox.insert(END, f"Name = {self.name}, Time = {self.time}, Mistakes = {self.mistake}, No. of Rounds = {self.noor}")
 
 
