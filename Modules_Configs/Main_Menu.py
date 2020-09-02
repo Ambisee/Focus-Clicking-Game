@@ -43,6 +43,7 @@ class MainMenu:
         self.mwin.mainloop()
 
     def get_no_rounds(self):
+        # Get number of rounds the player wants
         max = 20
         try:
             noor = int(self.no_entry.get())
@@ -57,9 +58,11 @@ class MainMenu:
         return noor
 
     def kb_btn_func(self, event):
+        # Keyboard shortcut for btn_func
         self.btn_func()
 
     def btn_func(self):
+        # Set number of rounds and time, proceed to game
         config.noor = self.get_no_rounds()
         config.noor_c = config.noor
         if config.noor == None:

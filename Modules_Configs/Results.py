@@ -64,6 +64,7 @@ class Results:
         self.win.focus_force()
 
     def print_score(self):
+        # Print out the scoreboard on the GUI
         self.scorelist.delete(0, END)
         with open("Scores.txt", "r") as f:
             lines = f.readlines()
@@ -78,6 +79,7 @@ class Results:
             save.post(self.scorelist)
 
     def submit_score(self):
+        # Submit and reprint the current score
         name = self.n_entry.get()
         time = f"{config.m}:{config.s}:{config.ms}"
 
@@ -92,6 +94,7 @@ class Results:
             messagebox.showerror("! Error !", "Please enter at least one character in the entry bar.")
 
     def retry(self):
+        # Return to the main menu
         self.win.destroy()
 
         config.m = 0
@@ -108,6 +111,7 @@ class Results:
         pass
 
     def del_s(self):
+        # Delete a score on the scoreboard
         del_obj = self.scorelist.get(ANCHOR)
 
         if del_obj == "":
@@ -139,4 +143,5 @@ class ScoreItem:
         self.noor = noor
 
     def post(self, listbox):
+        # Post score on the scoreboard
         listbox.insert(END, f"Name = {self.name}, Time = {self.time}, Mistakes = {self.mistake}, No. of Rounds = {self.noor}")

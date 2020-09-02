@@ -21,6 +21,7 @@ class GameButtons:
         config.button_list.append(self)
 
     def clicked(self):
+        # Check whether player clicked the right button
         if self.button['bg'] == "Green":
             config.noor -=1
             if config.noor != 0:
@@ -80,6 +81,7 @@ class Game(GameButtons):
         self.start_timer()
 
     def start_timer(self):
+        # Start the timer
         if self.stop == False:
             config.ms += 1
             if config.ms == 1000:
@@ -93,6 +95,7 @@ class Game(GameButtons):
             self.win.after(1, self.start_timer)
 
     def b_click(self, b):
+        # Update number of mistake, check whether victory or defeat condition met
         GameButtons.clicked(b)
         self.mistake['text'] = "Mistake = " + str(config.mistake)
 
