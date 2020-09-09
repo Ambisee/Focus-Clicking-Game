@@ -1,7 +1,10 @@
 # Focus-Clicking-Game
 
 <b>Language : Python 3.8</b>           
-<b>Modules Included : tkinter, random</b>
+
+# Package Used
+- tkinter
+- random
 
 # Description
 
