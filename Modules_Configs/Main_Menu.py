@@ -44,7 +44,7 @@ class MainMenu:
 
     def get_no_rounds(self):
         # Get number of rounds the player wants
-        max = 20
+        max = 1000
         try:
             noor = int(self.no_entry.get())
         except:
