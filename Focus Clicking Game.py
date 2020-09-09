@@ -33,7 +33,7 @@ class MainMenu:
 
     def get_no_rounds(self):
         # Get number of rounds the player wants
-        max = 100
+        max = 1000
         try:
             noor = int(self.no_entry.get())
         except:
@@ -159,7 +159,7 @@ class Game(GameButtons):
             self.win.after(1, self.start_timer)
 
     def b_click(self, b):
-        # 
+        # Update number of mistake, check whether victory or defeat condition met
         global mistake, noor
 
         GameButtons.clicked(b)
