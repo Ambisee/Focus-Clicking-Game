@@ -1,4 +1,4 @@
-# Focus-Clicking-Game
+# Whack a Mole
 
 <b>Language : Python 3.8</b>           
 
