@@ -22,7 +22,7 @@ class MainMenu:
         config.mainwin = self.mwin
 
         # WIDGETS
-        self.welcome_label = Label(self.mwin, text="FOCUS CLICKING GAME", font=("System", 30), fg="Purple")
+        self.welcome_label = Label(self.mwin, text="WHACK A MOLE", font=("System", 30), fg="Purple")
         self.no_label = Label(self.mwin, text="Insert number of rounds to click :", font=("Courier", 10))
         self.no_entry = Entry(self.mwin, width=50)
         self.button = Button(self.mwin, text="Start Game", font=("Courier", 15), command=self.btn_func)
