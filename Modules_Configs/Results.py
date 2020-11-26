@@ -2,14 +2,10 @@
 from tkinter import *
 from tkinter import messagebox
 
-if __name__ == "__main__":
-    print("Results Module - Part of 'Focus Clicking Game'.")
-    print("Uses - Display Results Window.")
-else:
-    try:
-        from Modules_Configs import config
-    except ModuleNotFoundError:
-        import config
+try:
+    from Modules_Configs import config
+except ModuleNotFoundError:
+    import config
 
 # --- Results Window --- #
 # Window
@@ -19,6 +15,7 @@ class Results:
 
         # WINDOW
         self.win = Toplevel()
+        self.win.title("Whack A Mole - Results")
         self.win.resizable(height=False, width=False)
         self.win.protocol("WM_DELETE_WINDOW", self.win.quit)
         self.upframe = Frame(self.win)
@@ -96,6 +93,7 @@ class Results:
     def retry(self):
         # Return to the main menu
         self.win.destroy()
+        del self
 
         config.m = 0
         config.s = 0
@@ -145,3 +143,10 @@ class ScoreItem:
     def post(self, listbox):
         # Post score on the scoreboard
         listbox.insert(END, f"Name = {self.name}, Time = {self.time}, Mistakes = {self.mistake}, No. of Rounds = {self.noor}")
+
+if __name__ == '__main__':
+    if input("Debug (Y/N) ? : ").lower() == 'y':
+        x = Tk()
+        x.withdraw()
+        Results().win.deiconify()
+        x.mainloop()

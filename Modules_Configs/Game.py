@@ -2,15 +2,11 @@
 from tkinter import *
 from random import choice
 
-if __name__ == "__main__":
-    print("Game Module - Part of 'Focus Clicking Game'.")
-    print("Uses - Displays Game Window.")
-else:
-    try:
-        from Modules_Configs import config, Results
-    except ModuleNotFoundError:
-        import config
-        import Results
+try:
+    from Modules_Configs import config, Results
+except ModuleNotFoundError:
+    import config
+    import Results
 
 # --- Game Window --- #
 # Game Buttons
@@ -105,3 +101,10 @@ class Game(GameButtons):
             del self
             y = Results.Results()
             y.win.deiconify()
+
+if __name__ == '__main__':
+    if input("Debug (Y/N) ? : ").lower() == 'y':
+        x = Tk()
+        x.withdraw()
+        Game().win.deiconify()
+        x.mainloop()
