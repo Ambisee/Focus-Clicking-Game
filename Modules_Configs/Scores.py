@@ -25,7 +25,7 @@ class Scores:
         self.title = Label(self.upframe, text="SCORES", font=("System", 30), fg="Yellow", bg="Purple")
         self.scorelist = Listbox(self.upframe, width=70)
         self.delete_score = Button(self.downframe, text="Delete Score", font=("Courier", 15), command=self.del_s)
-        self.returnb = Button(self.downframe, text="Quit", font=("Courier", 15), command=self.returnToMain)
+        self.returnb = Button(self.downframe, text="Return", font=("Courier", 15), command=self.returnToMain)
 
         self.title.grid(row=0, column=0, padx=10, pady=5, columnspan=3)
         self.scorelist.grid(row=5, column=0, padx=10, pady=5, columnspan=3)
